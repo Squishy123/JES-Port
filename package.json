@@ -1,0 +1,42 @@
+{
+  "name": "jes-port",
+  "version": "0.1.0",
+  "author": "Christian Wang",
+  "private": true,
+  "homepage": "./",
+  "main": "public/electron.js",
+  "build": {
+    "appId": "com.squishy123.jes-port",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "dependencies": {
+    "bulma": "^0.7.1",
+    "electron-is-dev": "^0.3.0",
+    "react": "^16.5.1",
+    "react-ace": "^6.1.4",
+    "react-dom": "^16.5.1",
+    "react-scripts": "1.1.5"
+  },
+  "scripts": {
+    "build": "yarn react-build && yarn electron-build",
+    "start": "concurrently \"yarn react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "release": "yarn react-build && electron-builder --publish=always",
+    "react-start": "react-scripts start & electron ./main.js",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test --env=jsdom",
+    "react-eject": "react-scripts eject",
+    "electron-build": "electron-builder"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "electron": "^2.0.9",
+    "electron-builder": "^20.28.4",
+    "wait-on": "^3.0.1"
+  }
+}

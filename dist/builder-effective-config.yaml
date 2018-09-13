@@ -1,0 +1,11 @@
+directories:
+  output: dist
+  buildResources: assets
+files:
+  - build/**/*
+  - node_modules/**/*
+extraMetadata:
+  main: build/electron.js
+appId: com.squishy123.jes-port
+extends: react-cra
+electronVersion: 2.0.9
